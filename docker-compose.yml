@@ -13,11 +13,11 @@ services:
       - db
 
   db:
-    image: mysql:8.0.22
+    image: mysql:latest
     ports:
       - "63306:3306"
     volumes:
       - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
-      #- ./docker/db/mysql_data:/var/lib/mysql
+      - ./docker/db/mysql_data:/var/lib/mysql
     env_file:
       - ./docker/db/db-variables.env
