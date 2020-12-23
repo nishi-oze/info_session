@@ -2,8 +2,13 @@ FROM php:7.4-apache
 
 WORKDIR /var/www/html
 
-RUN apt update && \
-    apt install -y default-mysql-client locales-all
+#RUN apt update && \
+    #apt install -y default-mysql-client locales-all
+
+# PHP で必要なライブラリをインストール
+RUN apt-get update \
+  && apt-get install -y libonig-dev libzip-dev unzip mariadb-client locales-all \
+  && docker-php-ext-install pdo_mysql mysqli mbstring zip
 
 ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:ja
