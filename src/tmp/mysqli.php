@@ -24,7 +24,7 @@ INSERT INTO shift_info_sessionT (
 )
 EOT;
 
-echo 'INSERTできた？' . PHP_EOL;
+mysqli_query($link,$sql);
 
 mysqli_close($link);
 echo 'データベースとの接続を切断しました'.PHP_EOL;
