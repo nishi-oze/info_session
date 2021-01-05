@@ -14,6 +14,7 @@ function validate($reservation)
 
 function createShiftInfo($link)
 {
+    /*
     echo '西暦を入力してください' . PHP_EOL;
     echo '西暦:';
     $reservation['year'] = trim(fgets(STDIN));
@@ -22,14 +23,16 @@ function createShiftInfo($link)
     echo '月:';
     $reservation['month'] = trim(fgets(STDIN));
 
-    echo '担当者IDを入力してください' . PHP_EOL;
-    echo '担当者ID:';
-    $reservation['employ_id'] = mb_convert_kana(trim(fgets(STDIN)), "nK");
-
     echo '予約日を入力してください' . PHP_EOL;
     echo '予約日:';
     $reservation['reservation_date'] = trim(fgets(STDIN));
+    */
+    echo '担当者IDを入力してください' . PHP_EOL;
+    echo '担当者ID:';
+    //$reservation['employ_id'] = mb_convert_kana(trim(fgets(STDIN)), "nK");
+    $reservation['employ_id'] = (trim(fgets(STDIN)));
 
+    /*
     echo '開始時間を入力してください' . PHP_EOL;
     echo '開始時間:';
     $reservation['start_time'] = trim(fgets(STDIN));
@@ -41,7 +44,7 @@ function createShiftInfo($link)
     echo 'ログインIDを表示します' . PHP_EOL;
     echo 'ログインID:';
     $reservation['login_id'] = trim(fgets(STDIN));
-
+    */
     $validated = validate($reservation);
     if (count($validated) > 0) {
         foreach ($validated as $error) {
