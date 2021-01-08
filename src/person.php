@@ -25,8 +25,12 @@ function dbConnect()
 function listPersons($results)
 {
     while ($personName = mysqli_fetch_assoc($results)) {
-        echo $personName['last_name'] . "  " . $personName['first_name'] . PHP_EOL;
+        $persons[] = $personName;
+        //echo $personName['last_name'] . "  " . $personName['first_name'] . PHP_EOL;
     }
+
+    //mysqli_free_result($results);
+    return $persons;
 }
 
 //$persons = [];
@@ -42,10 +46,12 @@ EOT;
 
 $results = mysqli_query($link, $sql);
 if ($results) {
-    listPersons($results);
+    $persons = listPersons($results);
 } else {
     echo 'Error:データの更新に失敗しました' . PHP_EOL;
     echo 'Debugging error:' . mysqli_error($link) . PHP_EOL;
 }
 
 mysqli_free_result($results);
+
+include 'views/shift_info_session_new.php';

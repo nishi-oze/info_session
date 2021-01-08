@@ -3,9 +3,10 @@
 function validate($reservation)
 {
     $errors = [];
-
+    var_dump($reservation);
     //担当者IDが正しく入力されているかチェック(先頭がT、残りが5桁の数字になっているか)
     if (!preg_match("/^T\d\d\d\d\d/i", $reservation['employ_id'])) {
+        //if (!preg_match("/\d\d\d\d\d/i", $reservation['employ_id'])) {
         $errors['employ_id'] = 'T12345という体裁で入力してください';
     }
 
@@ -46,6 +47,7 @@ function createShiftInfo($link)
     $reservation['login_id'] = trim(fgets(STDIN));
     */
     $validated = validate($reservation);
+    var_dump($validated);
     if (count($validated) > 0) {
         foreach ($validated as $error) {
             echo $error . PHP_EOL;
