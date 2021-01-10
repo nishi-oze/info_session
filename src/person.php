@@ -54,4 +54,5 @@ if ($results) {
 
 mysqli_free_result($results);
 
+$months = [];
 include 'views/shift_info_session_new.php';
