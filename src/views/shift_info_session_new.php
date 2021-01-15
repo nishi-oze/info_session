@@ -10,8 +10,8 @@
 
 <?php
 foreach ($persons as $person) {
-  $persons .= "<option value='" . $person['last_name'] . $person['first_name'];
-  $persons .= "'>" . $person['last_name'] . $person['first_name'] . "</option>";
+  $persons .= "<option value='" . $person['last_name'] . $person['first_name'] . "(" . $person['employ_id'] . ")";
+  $persons .= "'>" . $person['last_name'] . $person['first_name'] . "(" . $person['employ_id'] . ")" . "</option>";
 }
 for ($i = 1; $i < 13; $i++) {
   $months .= "<option value='" . $i;
@@ -21,7 +21,7 @@ for ($i = 1; $i < 13; $i++) {
 
 <body>
   <h1>担当者登録</h1>
-  <form method="GET" action="shift_info_session_show.php">
+  <form method="GET" action="/views/shift_info_session_show.php">
     担当者を選択して下さい<br>
     <select name="person">
       <?php echo $persons; ?>
